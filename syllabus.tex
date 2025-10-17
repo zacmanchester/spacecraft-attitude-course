@@ -1,0 +1,218 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{termcal}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+\title{16.685: Spacecraft Attitude Determination and Control}
+\author{Spring 2026}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent 
+\textbf{Course website:} \href{https://optimalcontrol.ri.cmu.edu/}{optimalcontrol.ri.cmu.edu}
+
+\section*{Course Description}
+
+This course is all about attitude: pointing, slewing, spinning, and (hopefully not) tumbling. We will discuss:
+\begin{itemize}
+\item Attitude representations and how to effectively parameterize attitude in different situations.
+\item How to model and simulate spacecraft attitude dynamics.
+\item How to estimate attitude from sensor measurements.
+\item How to manage a spacecraft's attitude both with passive physics and closed-loop control.
+\end{itemize}
+The course will be based around a project in which each student analyzes the attitude determination and control system (ADCS) for a spacecraft mission.
+
+\medskip
+\noindent
+\textbf{Prerequisites:} Strong linear algebra skills, experience with a high-level programming language like Python, MATLAB, or Julia, and basic familiarity with ordinary differential equations.
+
+\section*{Instructor}
+
+\begin{center}
+\begin{tabular}{l l}
+	Prof. Zac Manchester & \textbf{Email:} \href{mailto:zacm@mit.edu}{zacm@mit.edu}
+\end{tabular}
+\end{center}
+
+\section*{Logistics}
+
+\begin{itemize}
+	\item Lectures will be held \todo{time} Eastern time in \todo{place. Lectures will also be live streamed on zoom and recorded for later viewing.
+	%\item Recitation will be held Fridays on Zoom at 11 AM.
+	\item Office hours will be \todo{based on survey}.
+  \item Homework assignments will be due by \todo{due date}. Two weeks will be given to complete each assignment.
+	% \item GitHub will be used to distribute assignments and GradeScope will be used for submissions.
+	\item Slack will be used for general discussion and Q\&A outside of class and office hours.
+	\item There will be no exams. Instead, students will form groups of up to five to complete a project on a topic of their choice.
+\end{itemize}
+
+\newpage 
+\section*{Learning Objectives}
+By the end of this course, students should be able to do the following:
+\begin{enumerate}
+	\item Analyze the stability of dynamical systems
+	\item Design LQR controllers that stabilize equilibria and trajectories
+	\item Use offline trajectory optimization to design trajectories for nonlinear systems
+	\item Use online convex optimization to implement model-predictive control
+	\item Understand the effects of stochasticity and model uncertainty
+	\item Directly optimize feedback policies when good models are unavailable
+\end{enumerate}
+
+\section*{Learning Resources}
+
+There is no textbook required for this course. Video recordings of lectures and lecture notes will be posted online. Additional references for further reading will be provided with each lecture. Relavent (free) background material is available on the course website: \href{https://optimalcontrol.ri.cmu.edu/background/}{optimalcontrol.ri.cmu.edu/background}.
+
+\section*{Homework}
+
+Four homeworks will be assigned during the semester. Students will have at least two weeks to complete each assignment. All homework will be distributed using GitHub and collected using Gradescope. Solutions and grades will be returned within one week of homework due dates. Homework may be done collaboratively, but each student must submit their own solutions.
+
+
+\section*{Project Guidelines}
+
+Students should work in groups of 1--5 to complete a substantial final project. The goal is for students to apply the coarse content to their own research. Project proposals will be solicited on the first homework and topics will be selected in consultation with the instructors.
+
+\medskip
+\noindent
+Project grades will be based on a short presentation given during the last week of class and a final report submitted via Google drive by May 10 \href{https://time.is/Anywhere_on_Earth}{Anywhere on Earth}. Reports should be written in the form of a 6 page (plus references) ICRA or IROS conference paper using the standard \href{https://www.ieee.org/conferences/publishing/templates.html}{two-column IEEE format}. Sections should include an abstract, introduction and/or background to motivate your problem, 2--3 main technical sections on your contributions, conclusions, and references. Grading will be based on the following criteria:
+\newline
+\newline
+\begin{tabular}{|c|l|}
+\hline
+10\% & Class presentation \\
+\hline
+10\% & Adherence to IEEE formatting and length requirements \\
+\hline
+10\% & Innovation \& Creativity: Is what you did new/cool/interesting? Convince me. \\
+\hline
+30\% & Clarity of presentation: Can I understand what you did from your writing + plots? \\
+\hline
+40\% & Technical correctness: Are your results reasonable? Is your code correct? \\
+\hline	
+\end{tabular}
+
+\section*{Grading}
+
+Grading will be based on:
+\begin{itemize}
+	\item 50\% Project
+	\item 40\% Homework
+	\item 5\% Quizes
+	\item 5\% Participation
+\end{itemize}
+Attendance during lectures is not required to earn a full participation grade. Students can also participate through any combination of office hours, Piazza discussions, project presentations, and by offering constructive feedback about the course to the instructors.
+
+
+\section*{Course Policies}
+
+\textbf{Late Homework:} Students are allowed a budget of 6 late days for turning in homework with no penalty throughout the semester. They may be used together on one assignment, or separately on multiple assignments. Beyond these six days, no other late homework will be accepted.
+
+\medskip
+\noindent
+\textbf{Accommodations for Students with Disabilities:} If you have a disability and are registered with the Office of Disability Resources, I encourage you to use their online system to notify me of your accommodations and discuss your needs with me as early in the semester as possible. I will work with you to ensure that accommodations are provided as appropriate. If you suspect that you may have a disability and would benefit from accommodations but are not yet registered with the Office of Disability Resources, I encourage you to contact them at \href{mailto:access@andrew.cmu.edu}{access@andrew.cmu.edu}.
+
+\medskip
+\noindent
+\textbf{Statement of Support for Students' Health \& Well-Being:} Take care of yourself. Do your best to maintain a healthy lifestyle this semester by eating well, exercising, avoiding drugs and alcohol, getting enough sleep, and taking some time to relax. This will help you achieve your goals and cope with stress.
+
+\medskip
+\noindent
+If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. Counseling and Psychological Services (CaPS) is here to help: call 412-268-2922 and visit \href{http://www.cmu.edu/counseling}{http://www.cmu.edu/counseling}. Consider reaching out to a friend, faculty, or family member you trust for help getting connected to the support that can help.
+
+\medskip
+\noindent
+\textit{If you or someone you know is feeling suicidal or in danger of self-harm, call someone immediately, day or night:}
+
+\textit{CaPS: 412-268-2922}
+
+\textit{Re:solve Crisis Network: 888-796-8226}
+
+\medskip
+\noindent
+\textit{If the situation is life threatening, call the police:}
+
+\textit{On campus: CMU Police: 412-268-2323}
+
+\textit{Off campus: 911}
+
+\medskip
+\noindent
+If you have questions about this or your coursework, please let me know. Thank you, and have a great semester.
+
+
+\section*{Tentative Schedule}
+
+\begin{tabular}{c|c|c|c}
+	Week & Dates & Topics & Assignments \\
+	\hline
+	\multirow{2}{*}{1} & Jan 14 & 
+        Course Overview, \& Dynamics Intro & Survey \\
+	 & Jan 16 & Stability, Discrete-Time Dynamics &  HW0 Out\\
+	\hline
+	\multirow{2}{*}{2} & Jan 21 &
+        Optimization Intro & HW0 Due \\
+	 & Jan 23 & Numerical Optimization Pt. 1 & HW1 Out \\
+	\hline
+	\multirow{2}{*}{3}  & Jan 28 &
+        Numerical Optimization Pt. 2 \& Optimal Control Intro &  \\
+	 & Jan 30 & Pontryagin, Shooting Methods, \& LQR Intro &  \\
+	\hline
+	\multirow{2}{*}{4}  & Feb 4 &
+        LQR as a QP \& Riccati Equation & HW 1 Due \\
+	 & Feb 6 & Dynamic Programming \& Intro to Convexity & HW 2 Out \\
+	\hline
+	\multirow{2}{*}{5}  & Feb 11 &  Convex Model-Predictive Control & \\
+	 & Feb 13 & Intro to Trajectory Optimization, Iterative LQR, \& DDP &  \\
+	\hline
+	\multirow{2}{*}{6}  & Feb 18 & DDP with Constraints and Free Final Time & HW2 Due \\
+	 & Feb 20 & Direct Trajectory Optimization, Collocation, \& SQP & HW3 Out \\
+	\hline
+	\multirow{2}{*}{7}  & Feb 25 & Attitude Intro: SO(3) \& Quaternions
+         & \\
+	 & Feb 27 &  Optimizing with Attitude& \\
+	\hline
+	\multirow{2}{*}{8}  & Mar 4 & 
+        \textcolor{red}{No Class} & \\
+	 & Mar 6 & \textcolor{red}{No Class} &   \\
+	\hline
+	\multirow{2}{*}{9}  & Mar 11 & LQR with Attitude, Quadrotors, \& Contact Intro
+         & HW3 Due \\
+	 & Mar 13 & Trajectory Optimization for Hybrid Systems & HW4 Out \\
+	\hline
+	\multirow{2}{*}{10}  & Mar 18 & Data-Driven Methods \& Iterative Learning Control
+         &  \\
+	 & Mar 20 & Stochastic Optimal Control \& LQG &   \\
+	 \hline
+	\multirow{2}{*}{11}  & Mar 25 &Robust Control \& Minimax DDP
+         & HW4 Due \\
+	 & Mar 27 & RL from an Optimal Control Perspective &   \\
+	 \hline
+	\multirow{2}{*}{12}  & Apr 1 & Practical Tips \& Tricks, Control History 
+         &   \\
+	 & Apr 3 & \textcolor{red}{No Class} &   \\
+	 \hline
+	\multirow{2}{*}{13}  & Apr 8 & Case Study: How to Drive a Car
+         &  \\
+	 & Apr 10 & Case Study: How to Land a Rocket &   \\
+	 \hline
+	\multirow{2}{*}{14}  & Apr 15 & Case Study: How to Walk
+         &  \\
+	 & Apr 17 &  TBD &   \\
+	 \hline
+	\multirow{2}{*}{14}  & Apr 22 &
+        Project Presentations &  \\
+	 & Apr 24 & Project Presentations &   \\
+\end{tabular}
+
+
+
+\end{document}
