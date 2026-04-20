@@ -1,0 +1,51 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Spacecraft ADCS Homework 4}
+\author{Due Friday, May 1, 2026}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Actuator Specifications}
+
+Give detailed specifications for the actuators onboard your spacecraft. If you cannot find information specific to your chosen spacecraft, use specifications for similar actuators that you can find documentation for. At minimum, you must specify:
+\begin{enumerate}
+	\item Maximum force/torque and maximum angular momentum
+	\item Actuator positions and orientations in the spacecraft body frame
+	\item Jacobian matrices mapping actuator commands into body-frame torque and momentum
+\end{enumerate}
+
+\section{Environmental Torques}
+
+To increase the realism of your spacecraft dynamics model, add gravity gradient torque and either atmospheric drag or solar radiation pressure to your model. You should justify your choice (of drag or solar pressure) based on the orbit of your spacecraft. Simulate your spacecraft over several orbits with and without each of these perturbations and describe their effects on the behavior of the satellite. Some questions you should address are:
+\begin{enumerate}
+	\item What is the maximum magnitude of each torque on your spacecraft?
+	\item What do these torques look like averaged over an orbit? What is the maximum accumulated change in angular momentum you expect over a full day?
+	\item Based on 1 and 2, what implications do these environmental effects have for your actuators and overall attitude control system? For example, how often will you expect to need to perform momentum dumping?
+\end{enumerate}
+
+\section{Attitude Regulation}
+
+Design a controller to hold a specified attitude. You can use any control design method you like, including LQR, PID, or pole-placement techniques like like the root-locus method. Document this design process and the choices you made. Finally, integrate the controller with the rest of your spacecraft simulation (i.e. you should feed the state estimate from your MEKF into the controller). You should document the following tests:
+\begin{enumerate}
+	\item Test the controller from several random initial conditions out to $\pm 90^\circ$ error and document its performance.
+	\item Simulate the controller for several orbits with environmental disturbances and sensor noise. What is the RMS pointing error?
+\end{enumerate}
+
+\section{Eigen-Axis Slew}
+
+Implement an algorithm that generates state and input trajectories for an eigen-axis slew maneuver between specified initial and final attitudes with a specified maneuver time. Use the versine method described in class and use inverse dynamics to calculate actuator torques. To track this nominal trajectory in the presence of disturbances, use a linear feedback controller of your choice. Simulate the closed-loop system with state estimates from your MEKF and your full spacecraft dynamics. Document the following:
+\begin{enumerate}
+	\item Test your algorithm by simulating a $180^\circ$ slew maneuver. Be careful not to exceed the capabilities of your spacecraft's actuators during the maneuver. Plot the nominal and closed-loop states and control inputs and analyze the performance of the system.
+	\item Compare the the eigen-axis slew with the regulator controller. What differences do you see for initial conditions far away from the desired attitude?
+\end{enumerate}
+
+\end{document}
