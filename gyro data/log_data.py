@@ -2,7 +2,7 @@ import serial
 import time
 
 # Configuration
-serial_port = '/dev/tty.usbmodem1101' #fill this in with correct port
+serial_port = '/dev/tty.usbmodem101' #fill this in with correct port
 baud_rate = 9600
 output_file = 'gyro_data.txt'
 
