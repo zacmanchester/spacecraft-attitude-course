@@ -15,7 +15,7 @@ while True:
     acceleration = accel_gyro.acceleration
     magnetic = mag.magnetic
 
-    line = "G: {0:8.3f}, {1:8.3f}, {2:8.3f} ".format(*gyro) + "A: {0:8.3f}, {1:8.3f}, {2:8.3f} ".format(*acceleration) + "M: {0:8.3f}, {1:8.3f}, {2:8.3f}".format(*magnetic)
+    line = "G: {0:8.4f}, {1:8.4f}, {2:8.4f} ".format(*gyro) + "A: {0:8.4f}, {1:8.4f}, {2:8.4f} ".format(*acceleration) + "M: {0:8.4f}, {1:8.4f}, {2:8.4f}".format(*magnetic)
 
     print(line)
     time.sleep(0.05)
