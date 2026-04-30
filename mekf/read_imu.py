@@ -11,11 +11,11 @@ mag = LIS3MDL(i2c)
 
 # Main loop will read values and print them out over serial.
 while True:
-    acceleration = accel_gyro.acceleration
     gyro = accel_gyro.gyro
+    acceleration = accel_gyro.acceleration
     magnetic = mag.magnetic
-    print("Accel: X:{0:8.3f}, Y:{1:8.3f}, Z:{2:8.3f} m/s^2".format(*acceleration))
-    print("Gyro:  X:{0:8.3f}, Y:{1:8.3f}, Z:{2:8.3f} rad/s".format(*gyro))
-    print("Mag:   X:{0:8.3f}, Y:{1:8.3f}, Z:{2:8.3f} uT".format(*magnetic))
-    print("")
+
+    line = "G: {0:8.3f}, {1:8.3f}, {2:8.3f} ".format(*gyro) + "A: {0:8.3f}, {1:8.3f}, {2:8.3f} ".format(*acceleration) + "M: {0:8.3f}, {1:8.3f}, {2:8.3f}".format(*magnetic)
+
+    print(line)
     time.sleep(0.05)
